@@ -29,7 +29,7 @@ public class Task10 {
     }
     static int minusFirstDigit(int number){
         int digits = howManyDigits(number);
-        //Проверка, что разрядов больше одного
+        //Проверка, что разрядов больше одного.
         if(digits>0) {
             int restOfNumber = number % (int) (Math.pow(10, digits - 1));
             return restOfNumber;
