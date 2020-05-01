@@ -22,11 +22,11 @@ public class Task1 {
 //		String patternWord ="\\s*\\W+\\s*";
 //		String patternWord ="\\s*[\\s|,|!|;|:|[.*\\.]|\\?|-|=|<|>|$|@|\\(|\\)|\\{|\\}|\\[|\\]|/|[/\\*.*/]]\\s*";
 //	text = "One two three four. One two three for five! One two? One two three.";
-		text = "Aa aaa a aaaaaa aaaa aa. Bbbbbbb bb bbbbbb bbbb bbb. C cccccccc ccccccc cc ccccc ccc?";
-//		text ="First1Java it's java. 2Delimetr?3English word, sword!\r\n"+
-//              "Second1Another sentence, many words. 2(And) anothere one.r\n"+
-//			  "Third1Word and sentence. 2Sentence in the world!3Sword. 4this text don't have 20 words.5 And new one.\r\n"+
-//				"Fourth1 first sentence.2 Second one. 3 And again.4 Enouth fo for!";
+//		text = "Aa aaa a aaaaaa aaaa aa. Bbbbbbb bb bbbbbb bbbb bbb. C cccccccc ccccccc cc ccccc ccc cc?";
+		text ="1First Java it's java. 2Delimetr?3English word, sword!\r\n"+
+              "1SecondAnother sentence, many words. 2(And) anothere one.\r\n"+
+			  "1ThirdWord and sentence. 2Sentence in the world!3Sword. 4this text don't have 20 words.5 And new one.\r\n"+
+				"1Fourth first sentence.2 Second one. 3 And again.4 Enough for!";
 
 //		text = "First Mr and  Mrs  Dursley,  of  number  four,  Privet  Drive,  were  proud  to  say  that  they "
 //				+ " were  perfectly  normal,  thank  you  very  much.  They  were  the  last  people  you’d "
@@ -65,11 +65,12 @@ public class Task1 {
 //		printArray(paragrafs);
 
 //отсортировать абзацы по количеству предложений; 
-//		sortParagraf(paragrafs, 0, patternSentence);
+		sortParagraf(paragrafs, 0, patternSentence);
 //		for(int i = 0;i<paragrafs.length;i++) {
 //		System.out.println("Number of sentences in "+i+" paragraf = "+ +counter(paragrafs[i],patternSentence));
 //		}
-//		printArray(paragrafs);
+		printArray(paragrafs);
+		System.out.println(" Sentences");
 
 		sortWord(sentences, 0,patternWord);
 		printArray(sentences);
@@ -159,6 +160,10 @@ public class Task1 {
 			}
 			array[j]=str;
 		}
+	}
+	
+	public static void sortBySymbol(String[]array, String symbol) {
+		
 	}
 
 	public static void swap(int indexOne, int indexTwo, String[] arr) {
