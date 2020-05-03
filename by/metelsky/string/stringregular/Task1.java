@@ -1,5 +1,6 @@
 package by.metelsky.string.stringregular;
 
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,6 +13,7 @@ import java.util.regex.Pattern;
  */
 
 public class Task1 {
+	// Написать выбор действия свитч кейс
 
 	public static void main(String[] args) {
 		String text;
@@ -19,64 +21,84 @@ public class Task1 {
 		String patternSentence = "\\s*[\\.|!|\\?|]\\s*";
 		String patternWord = "\\s*[\\s;:,]\\s*";
 
-//		String patternWord ="\\s*\\W+\\s*";
-//		String patternWord ="\\s*[\\s|,|!|;|:|[.*\\.]|\\?|-|=|<|>|$|@|\\(|\\)|\\{|\\}|\\[|\\]|/|[/\\*.*/]]\\s*";
-//	text = "One two three four. One two three for five! One two? One two three.";
-//		text = "Aa aaa a aaaaaa aaaa aa. Bbbbbbb bb bbbbbb bbbb bbb. C cccccccc ccccccc cc ccccc ccc cc?";
-		text ="1First Java it's java. 2Delimetr?3English word, sword!\r\n"+
-              "1SecondAnother sentence, many words. 2(And) anothere one.\r\n"+
-			  "1ThirdWord and sentence. 2Sentence in the world!3Sword. 4this text don't have 20 words.5 And new one.\r\n"+
-				"1Fourth first sentence.2 Second one. 3 And again.4 Enough for!";
-
-//		text = "First Mr and  Mrs  Dursley,  of  number  four,  Privet  Drive,  were  proud  to  say  that  they "
-//				+ " were  perfectly  normal,  thank  you  very  much.  They  were  the  last  people  you’d "
-//				+ " expect  to  be  involved  in  anything  strange  or  mysterious,  because  they  just  didn’t"
-//				+ "  hold  with  such  nonsense.\r\n"
-//				+ "    Second  Mr Dursley was the director of a firm called Grunnings, which made  drills."
-//				+ "  He  was  a  big,  beefy  man  with  hardly  any  neck,  although  he  did  have  a  very  large "
-//				+ " moustache.  Mrs  Dursley  was  thin  and  blonde  and  had  nearly  twice  the  usual  amount "
-//				+ " of  neck,  which came in very useful as she spent so much of her time craning over garden fences,"
-//				+ " spying on the neighbours. The Dursleys had a small  son  called  Dudley  and  in  their  opinion "
-//				+ " there  was  no  finer  boy anywhere.And another one. And one. And one again.\r\n"
-//				+ "    Third The  Dursleys  had  everything  they  wanted,  but  they  "
-//				+ "also  had  a  secret, and their greatest fear was that somebody would discover it. They didn’t think"
-//				+ " they could bear it if anyone found out about the  Potters.  Mrs  Potter  was  Mrs  Dursley’s  sister, "
-//				+ " but  they  hadn’t  met  for  several  years;  in  fact,  Mrs  Dursley  pretended  she  didn’t "
-//				+ " have a sister, because her sister and her good-for-nothing husband were  as  unDursleyish  as  "
-//				+ "it  was  possible  to  be.  The  Dursleys  shuddered  to  think  what  the  neighbours  would "
-//				+ " say  if  the  Potters  arrived  in  the  street.  The  Dursleys  knew  that  the  Potters  had "
-//				+ " a  small  son,  too,  but  they  had  never  even  seen  him.  This  boy  was  another  good "
-//				+ " reason  for  keeping  the  Potters  away;  they  didn’t"
-//				+ "  want Dudley mixing with a child like that. ";
+		text = "First Mr and  Mrs  Dursley,  of  number  four,  Privet  Drive,  were  proud  to  say  that  they "
+				+ " were  perfectly  normal,  thank  you  very  much.  They  were  the  last  people  you’d "
+				+ " expect  to  be  involved  in  anything  strange  or  mysterious,  because  they  just  didn’t"
+				+ "  hold  with  such  nonsense.\r\n"
+				+ "    Second  Mr Dursley was the director of a firm called Grunnings, which made  drills."
+				+ "  He  was  a  big,  beefy  man  with  hardly  any  neck,  although  he  did  have  a  very  large "
+				+ " moustache.  Mrs  Dursley  was  thin  and  blonde  and  had  nearly  twice  the  usual  amount "
+				+ " of  neck,  which came in very useful as she spent so much of her time craning over garden fences,"
+				+ " spying on the neighbours. The Dursleys had a small  son  called  Dudley  and  in  their  opinion "
+				+ " there  was  no  finer  boy anywhere.And another one. And one. And one again.\r\n"
+				+ "    Third The  Dursleys  had  everything  they  wanted,  but  they  "
+				+ "also  had  a  secret, and their greatest fear was that somebody would discover it. They didn’t think"
+				+ " they could bear it if anyone found out about the  Potters.  Mrs  Potter  was  Mrs  Dursley’s  sister, "
+				+ " but  they  hadn’t  met  for  several  years;  in  fact,  Mrs  Dursley  pretended  she  didn’t "
+				+ " have a sister, because her sister and her good-for-nothing husband were  as  unDursleyish  as  "
+				+ "it  was  possible  to  be.  The  Dursleys  shuddered  to  think  what  the  neighbours  would "
+				+ " say  if  the  Potters  arrived  in  the  street.  The  Dursleys  knew  that  the  Potters  had "
+				+ " a  small  son,  too,  but  they  had  never  even  seen  him.  This  boy  was  another  good "
+				+ " reason  for  keeping  the  Potters  away;  they  didn’t"
+				+ "  want Dudley mixing with a child like that. ";
 
 		String[] words = text.split(patternWord);
 
-//		System.out.println("Number of words = " + words.length);
-//		printArray(words);
-
 		String[] sentences = text.split(patternSentence);
-
-//		System.out.println("Number of sentence = " + sentences.length);
-//		printArray(sentences);
 
 		String[] paragrafs = text.split(patternParagraf);
 
-//		System.out.println("Number of paragrafs = " + paragrafs.length);
-//		printArray(paragrafs);
+		int select;
+		String symbol;
 
-//отсортировать абзацы по количеству предложений; 
-		sortParagraf(paragrafs, 0, patternSentence);
-//		for(int i = 0;i<paragrafs.length;i++) {
-//		System.out.println("Number of sentences in "+i+" paragraf = "+ +counter(paragrafs[i],patternSentence));
-//		}
-		printArray(paragrafs);
-		System.out.println(" Sentences");
+		while (true) {
+			System.out.println("Введите 1 если хотите отсрортировать абзацы по количеству предложений(По возрастанию)");
+			System.out.println("Введите 2 если хотите отсрортировать абзацы по количеству предложений(По убыванию)");
+			System.out
+					.println("Введите 3 если хотите в каждом предложении отсортировать слова по длине(По возрастанию)");
+			System.out.println("Введите 4 если хотите в каждом предложении отсортировать слова по длине(По убыванию)");
+			System.out.println(
+					"Введите 5 если хотите отсортировать лексемы в предложении по убыванию количества вхождений заданного символа");
 
-		sortWord(sentences, 0,patternWord);
-		printArray(sentences);
+			Scanner sc = new Scanner(System.in);
+
+			if (sc.hasNextInt()) {
+				select = sc.nextInt();
+				switch (select) {
+				case 1:
+					sortParagraf(paragrafs, 1, patternSentence);
+					printArray(paragrafs);
+					break;
+				case 2:
+					sortParagraf(paragrafs, 0, patternSentence);
+					printArray(paragrafs);
+					break;
+				case 3:
+					sortWord(sentences, 1, patternWord);
+					printArray(sentences);
+					break;
+				case 4:
+					sortWord(sentences, 0, patternWord);
+					printArray(sentences);
+					break;
+				case 5:
+					System.out.println("Введите искомый символ");
+					Scanner sym = new Scanner(System.in);
+
+					symbol = sym.next();
+					sortBySymbol(words, symbol);
+					printArray(words);
+
+					break;
+				default:
+					break;
+				}
+			}
+			break;
+		}
+
 	}
 
-	// Может считать предложения, может слова
 	public static int counter(String text, String pattern) {
 		int counter = 0;
 
@@ -122,48 +144,89 @@ public class Task1 {
 
 	}
 
-	// сортировать надо слова в каждом предложении.
-	public static void sortWord(String[] array, int howToSort,String pattern) {
+	public static void sortWord(String[] array, int howToSort, String pattern) {
 		boolean needIteration;
-		for(int j = 0; j<array.length;j++) {
+		for (int j = 0; j < array.length; j++) {
 			needIteration = true;
-		String[] words = array[j].split(pattern);
-			switch(howToSort) {
-		case 0:
-		while (needIteration) {
-			needIteration = false;
-			for (int i = 1; i < words.length; i++) {
-				if (words[i].length() > words[i - 1].length()) {
-					swap(i, i - 1, words);
-					needIteration = true;
-				}
-			}
-
-		}
-		break;
-		case 1:
-			while (needIteration) {
-				needIteration = false;
-				for (int i = 1; i < words.length; i++) {
-					if (words[i].length() < words[i - 1].length()) {
-						swap(i, i - 1, words);
-						needIteration = true;
+			String[] words = array[j].split(pattern);
+			switch (howToSort) {
+			case 0:
+				while (needIteration) {
+					needIteration = false;
+					for (int i = 1; i < words.length; i++) {
+						if (words[i].length() > words[i - 1].length()) {
+							swap(i, i - 1, words);
+							needIteration = true;
+						}
 					}
-				}
 
-			}
-			break;
 				}
-			String str="";
-			for(int x =0;x<words.length;x++) {
-				str = str+words[x]+" ";
+				break;
+			case 1:
+				while (needIteration) {
+					needIteration = false;
+					for (int i = 1; i < words.length; i++) {
+						if (words[i].length() < words[i - 1].length()) {
+							swap(i, i - 1, words);
+							needIteration = true;
+						}
+					}
+
+				}
+				break;
 			}
-			array[j]=str;
+			String str = "";
+			for (int x = 0; x < words.length; x++) {
+				str = str + words[x] + " ";
+			}
+			array[j] = str;
 		}
 	}
-	
-	public static void sortBySymbol(String[]array, String symbol) {
-		
+
+	public static void sortBySymbol(String[] array, String symbol) {
+		boolean needIteration = true;
+
+		while (needIteration) {
+			needIteration = false;
+			for (int i = 0; i < array.length - 1; i++) {
+				if (counter(array[i], symbol) < counter(array[i + 1], symbol)) {
+					swap(i, i + 1, array);
+					needIteration = true;
+				}
+				if (counter(array[i], symbol) == counter(array[i + 1], symbol)) {
+
+					for (int index = 0; index < minWord(array[i], array[i + 1]).length() - 1;) {
+						if (Character.toLowerCase(array[i].charAt(index)) == Character
+								.toLowerCase(array[i + 1].charAt(index))) {
+							index++;
+
+						}
+
+						if (Character.toLowerCase(array[i].charAt(index)) > Character
+								.toLowerCase(array[i + 1].charAt(index))) {
+							swap(i, i + 1, array);
+							needIteration = true;
+							break;
+						}
+						if (Character.toLowerCase(array[i].charAt(index)) < Character
+								.toLowerCase(array[i + 1].charAt(index))) {
+							break;
+						}
+
+					}
+
+				}
+			}
+		}
+
+	}
+
+	public static String minWord(String one, String two) {
+		if (one.length() < two.length()) {
+			return one;
+		} else {
+			return two;
+		}
 	}
 
 	public static void swap(int indexOne, int indexTwo, String[] arr) {
