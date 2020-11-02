@@ -1,4 +1,5 @@
 package by.metelsky.classes.simpleclasses.task5;
+
 /*
  * Опишите класс, реализующий десятичный счетчик, который может увеличивать
  *  или уменьшать свое значение на единицу в заданном диапазоне. 
@@ -8,7 +9,7 @@ package by.metelsky.classes.simpleclasses.task5;
  *  Написать код, демонстрирующий все возможности класса.
  */
 public class Counter {
-	private static int idCounter =0;
+	private static int idCounter = 0;
 	private int counter;
 	private int minRange;
 	private int maxRange;
@@ -19,17 +20,17 @@ public class Counter {
 		minRange = 0;
 		maxRange = 10;
 		idCounter++;
-		id=idCounter;
+		id = idCounter;
 	}
 
 	public Counter(int minRange, int maxRange, int counter) {
 		int tmp;
 
 		if (minRange <= maxRange) {
-			
+
 			this.minRange = minRange;
 			this.maxRange = maxRange;
-			
+
 		} else {
 
 			tmp = maxRange;
@@ -49,22 +50,24 @@ public class Counter {
 		id = idCounter;
 	}
 
-	public void increaseCounter() {
+	public boolean increaseCounter() {
 		if (counter < maxRange) {
 			counter++;
+			return true;
 		} else {
-			System.out.println("Счетчик "+id+" достиг максимального значения: " + counter);
+			return false;
 		}
 	}
 
-	public void decreaseCounter() {
+	public boolean decreaseCounter() {
 		if (counter > minRange) {
 			counter--;
+			return true;
 		} else {
-			System.out.println("Счетчик " +id+ " достиг минимального значения: " + counter);
+			return false;
 		}
-
 	}
+
 	public int getId() {
 		return id;
 	}
@@ -72,7 +75,41 @@ public class Counter {
 	public int getCounter() {
 		return counter;
 	}
-//	public void setCounter(int counter) {
-//		this.counter = counter;
-//	}
+
+	@Override
+	public String toString() {
+		return "Counter [counter=" + counter + ", minRange=" + minRange + ", maxRange=" + maxRange + ", id=" + id + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + counter;
+		result = prime * result + id;
+		result = prime * result + maxRange;
+		result = prime * result + minRange;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Counter other = (Counter) obj;
+		if (counter != other.counter)
+			return false;
+		if (id != other.id)
+			return false;
+		if (maxRange != other.maxRange)
+			return false;
+		if (minRange != other.minRange)
+			return false;
+		return true;
+	}
+
 }

@@ -6,7 +6,8 @@ package by.metelsky.basic.loop;
 public class Task6 {
     public static void main(String[] args) {
         char charForPrint;
-        int endRange = 65535; //Диапазон значений char от 0 до 65535
+       // int endRange = 65535; //Диапазон значений char от 0 до 65535
+        int endRange = 111;
         for (int i =0;i<=endRange;i++) {
             charForPrint = (char) i;
             System.out.println(i+ " = " + charForPrint);

@@ -1,5 +1,13 @@
 package by.metelsky.classes.simpleclasses.task5;
 
+/*
+ * Опишите класс, реализующий десятичный счетчик, который может увеличивать
+ *  или уменьшать свое значение на единицу в заданном диапазоне. 
+ * Предусмотрите инициализацию счетчика значениями по умолчанию 
+ * и произвольными значениями. Счетчик имеет методы увеличения и уменьшения состояния,
+ *  и метод позволяющее получить его текущее состояние.
+ *  Написать код, демонстрирующий все возможности класса.
+ */
 public class Main {
 	public static void main(String[] args) {
 		int minRange = 0;
@@ -13,22 +21,24 @@ public class Main {
 		System.out.println("Счетчик " + count2.getId() + " имеет значение " + count2.getCounter());
 		System.out.println("Уменьшаем значение счетчика");
 
-		for (int i = 0; i < 4; i++) {
-			count.decreaseCounter();
-			count2.decreaseCounter();
-			System.out.println("Счетчик " + count.getId() + " имеет значение " + count.getCounter());
-			System.out.println("Счетчик " + count2.getId() + " имеет значение " + count2.getCounter());
-			System.out.println("");
-		}
-		System.out.println("Увеличиваем значение счетчика");
+		decreaseCounter(count);
+		decreaseCounter(count2);
+		increaseCounter(count);
+		increaseCounter(count2);
 
-		for (int i = 0; i < 7; i++) {
-			count.increaseCounter();
-			count2.increaseCounter();
-			System.out.println("Счетчик " + count.getId() + " имеет значение " + count.getCounter());
-			System.out.println("Счетчик " + count2.getId() + " имеет значение " + count2.getCounter());
-			System.out.println("");
-		}
+	}
 
+	public static void decreaseCounter(Counter count) {
+		while (count.decreaseCounter()) {
+			System.out.println("Счетчик " + count.getId() + " имеет значение " + count.getCounter());
+		}
+		System.out.println("Счетчик " + count.getId() + " достиг максимального значения: " + count.getCounter());
+	}
+
+	public static void increaseCounter(Counter count) {
+		while (count.increaseCounter()) {
+			System.out.println("Счетчик " + count.getId() + " имеет значение " + count.getCounter());
+		}
+		System.out.println("Счетчик " + count.getId() + " достиг максимального значения: " + count.getCounter());
 	}
 }
