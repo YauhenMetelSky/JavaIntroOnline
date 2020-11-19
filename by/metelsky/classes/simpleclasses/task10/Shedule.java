@@ -29,6 +29,31 @@ public class Shedule {
 		return shedule.addAll(airlines);
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((shedule == null) ? 0 : shedule.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Shedule other = (Shedule) obj;
+		if (shedule == null) {
+			if (other.shedule != null)
+				return false;
+		} else if (!shedule.equals(other.shedule))
+			return false;
+		return true;
+	}
+
 
 	
 	
